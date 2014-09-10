@@ -12,6 +12,9 @@ X Pin connected to Analog Pin 0 on Arduino
 Y Pin connected to Analog Pin 1 on Arduino
 Z Pin connected to Analog Pin Z on Arduino
 
+9/9/14
+Basic code working. Need to debug possible issue with serial monitor
+
 */
 
 // Analog Read Pins
@@ -35,14 +38,24 @@ void setup(){
 }
 
 void loop(){
+  
+  // Clear last sensor values
+  xReading = 0;
+  yReading = 0;
+  zReading = 0;  
+  
   // Read sensor values
   xReading = analogRead(xPin);
   yReading = analogRead(yPin);  
   zReading = analogRead(zPin);    
   
   // Print Values to Serial Monitor 
-  Serial.print(xReading);
-  Serial.print(yReading);  
-  Serial.print(zReading);    
+  Serial.println("X Reading:");
+  Serial.println(xReading);
+  Serial.println("Y Reading:");
+  Serial.println(yReading);  
+  Serial.println("Z Reading:");
+  Serial.println(zReading);
+  delay(500);  
 }
 
